@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Robot Designer</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="importmap">
+    { "imports": { "three": "/vendor/three/three.module.js", "three/addons/": "/vendor/three/" } }
+  </script>
+</head>
+<body>
+  <header id="toolbar">
+    <div class="brand">Robot Designer</div>
+    <div class="group" id="tools">
+      <button data-tool="select" title="Select (V)">Select</button>
+      <button data-tool="move" title="Move (G)">Move</button>
+      <button data-tool="rotate" title="Rotate (R)">Rotate</button>
+      <button data-tool="paint" title="Paint material between actuators (B)">Paint</button>
+      <button data-tool="erase" title="Erase painted material (E)">Erase</button>
+    </div>
+    <div class="group">
+      <button id="btn-focus" title="Zoom to the selection (F or double-click)">Focus</button>
+      <button id="btn-back" title="Leave focus view (Esc)">Back</button>
+      <button id="btn-fit" title="Fit everything in view">Fit all</button>
+      <button id="btn-undo" title="Undo last paint stroke (Ctrl+Z)">Undo</button>
+    </div>
+    <div class="group right">
+      <button id="btn-save" title="Download the design as JSON">Save</button>
+      <button id="btn-load" title="Load a design from JSON">Load</button>
+      <button id="btn-new" title="Start an empty design">New</button>
+      <input type="file" id="file-load" accept="application/json,.json" hidden>
+    </div>
+  </header>
+
+  <aside id="catalog"></aside>
+
+  <main id="viewport">
+    <canvas id="c"></canvas>
+    <div id="labels"></div>
+    <div id="hint"></div>
+  </main>
+
+  <aside id="inspector"></aside>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
