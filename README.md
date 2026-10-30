@@ -1,14 +1,26 @@
-# Robot Designer (local)
+# Robot Designer
+
+**Live demo: https://rubikscube05.github.io/robot-designer/**
 
 Browser-based tool to place real actuators, zoom in on any part to see its mount faces and
-bolt holes, connect two actuators, and paint the structure between them. Runs only on your
-machine (127.0.0.1); no internet needed.
+bolt holes, connect two actuators, and paint the structure between them. Runs entirely in the
+browser; no backend or internet connection needed at runtime.
 
-## Run
+## Run locally
 
     python3 server.py            # then open http://127.0.0.1:8000
 
 Python 3.9+ only (standard library). three.js is bundled in `web/vendor/`.
+
+## Deploy
+
+The site is static. Build it into `dist/` with:
+
+    python3 scripts/build_static.py
+
+GitHub Pages deploys `dist/` automatically on every push to `main` via
+`.github/workflows/pages.yml`. A `vercel.json` is included, so `vercel --prod` deploys the
+same build to Vercel.
 
 ## Use
 

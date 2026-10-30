@@ -541,7 +541,7 @@ async function start() {
   refreshInspector();
   refreshHint();
   try {
-    const entries = await (await fetch("/api/catalog")).json();
+    const entries = await (await fetch("./api/catalog.json")).json();
     catalogByName = new Map(entries.map((e) => [e.name, e]));
     createCatalogPanel($("catalog"), entries, addFromCatalog);
   } catch (err) {

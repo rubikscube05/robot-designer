@@ -40,7 +40,7 @@ class Handler(SimpleHTTPRequestHandler):
 
     def do_GET(self) -> None:  # noqa: N802 (http.server naming)
         """Answer /api/* requests; everything else is a static file."""
-        if self.path.split("?")[0] == "/api/catalog":
+        if self.path.split("?")[0] in ("/api/catalog", "/api/catalog.json"):
             self._send_json(self.catalog)
         elif self.path.split("?")[0] == "/api/health":
             self._send_json({"ok": True, "actuators": len(self.catalog)})
